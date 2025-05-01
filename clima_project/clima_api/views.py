@@ -5,8 +5,9 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import ClimaSerializer
+from django.http import HttpResponse
 
-# ⚠️ Reemplaza esto por tu propia API Key de weatherstack
+
 API_KEY = '8cdeb77776a235824f142bb4807bb342'
 
 class ClimaView(APIView):
@@ -35,4 +36,7 @@ class ClimaView(APIView):
         else:
             return Response(serializer.errors, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-# Create your views here.
+
+
+def home(request):
+    return HttpResponse("¡Bienvenido a la página de inicio!")

@@ -17,7 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
+from django.http import HttpResponse
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('clima_api.urls')),
 ]
+
+def home(request):
+    return HttpResponse("Bienvenido a la API del Clima 🌤️. Usa /api/clima/?ciudad=NombreCiudad para obtener el clima.")
